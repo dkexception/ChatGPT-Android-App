@@ -19,5 +19,5 @@ OpenAI's latest models. Just key in your API key and good to go!
 ## Previews
 
 <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/preview1.jpg" style=" width:250px" />
-<img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/preview2.jpg" style=" width:250px" />
-<img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/preview3.jpg" style=" width:250px" />
+<img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/preview2.png" style=" width:250px" />
+<img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/preview3.png" style=" width:250px" />
