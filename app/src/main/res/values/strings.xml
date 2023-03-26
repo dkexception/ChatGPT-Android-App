@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">ChatGPT</string>
 
+    <string name="user_query_field_hint">Enter your query</string>
     <string name="submit">Submit</string>
+
+    <string name="selection_screen_title">Welcome</string>
     <string name="chat_screen_title">Chat with ChatGPT</string>
-    <string name="chat_query_field_hint">Enter your query</string>
+    <string name="image_gen_screen_title">Generate cool images</string>
+
 </resources>

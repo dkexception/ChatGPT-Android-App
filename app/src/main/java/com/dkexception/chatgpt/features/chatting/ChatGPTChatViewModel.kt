@@ -1,10 +1,11 @@
-package com.dkexception.chatgpt.ui.screens.chatting
+package com.dkexception.chatgpt.features.chatting
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dkexception.chatgpt.data.remote.dto.TextCompletionRequestDTO
-import com.dkexception.chatgpt.data.remote.dto.TextCompletionResponseDTO
-import com.dkexception.chatgpt.data.repository.TextCompletionRepository
+import com.dkexception.chatgpt.data.models.ChatModel
+import com.dkexception.chatgpt.data.models.ChatUserType
+import com.dkexception.chatgpt.data.remote.dto.chat_completion.ChatCompletionRequestDTO
+import com.dkexception.chatgpt.data.repository.OpenAIAPIsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChatGPTChatViewModel @Inject constructor(
-    private val textCompletionRepository: TextCompletionRepository
+    private val openAIAPIsRepository: OpenAIAPIsRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ChatGPTChatScreenState())
@@ -37,7 +38,7 @@ class ChatGPTChatViewModel @Inject constructor(
                     chatList = state.chatList.apply {
                         add(
                             ChatModel(
-                                text = prompt,
+                                textOrUrl = prompt,
                                 userType = ChatUserType.HUMAN
                             )
                         )
@@ -47,20 +48,21 @@ class ChatGPTChatViewModel @Inject constructor(
                 )
             }
 
-            val response: TextCompletionResponseDTO =
-                textCompletionRepository.getTextCompletionForPrompt(
-                    requestDTO = TextCompletionRequestDTO(
-                        messages = _state.value.toMessageListForAPI()
-                    )
+            val (response, error) = openAIAPIsRepository.getTextCompletionForPrompt(
+                requestDTO = ChatCompletionRequestDTO(
+                    messages = _state.value.toMessageListForAPI()
                 )
+            )
+
+            val completionResponse: String =
+                error ?: response?.choices?.firstOrNull()?.message?.content.orEmpty().trim()
 
             _state.update { state ->
                 state.copy(
                     chatList = state.chatList.apply {
                         add(
                             ChatModel(
-                                text = response.choices?.firstOrNull()?.message?.content.orEmpty()
-                                    .trim(),
+                                textOrUrl = completionResponse,
                                 userType = ChatUserType.AI
                             )
                         )

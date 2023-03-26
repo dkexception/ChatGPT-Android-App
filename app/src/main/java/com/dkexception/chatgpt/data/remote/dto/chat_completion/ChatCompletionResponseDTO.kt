@@ -1,8 +1,8 @@
-package com.dkexception.chatgpt.data.remote.dto
+package com.dkexception.chatgpt.data.remote.dto.chat_completion
 
 import com.google.gson.annotations.SerializedName
 
-data class TextCompletionResponseDTO(
+data class ChatCompletionResponseDTO(
     @SerializedName("choices")
     val choices: List<Choice?>? = null,
     @SerializedName("created")
@@ -31,4 +31,13 @@ data class Message(
     val content: String? = null,
     @SerializedName("role")
     val role: String? = null
+)
+
+data class Usage(
+    @SerializedName("completion_tokens")
+    val completionTokens: Int? = null,
+    @SerializedName("prompt_tokens")
+    val promptTokens: Int? = null,
+    @SerializedName("total_tokens")
+    val totalTokens: Int? = null
 )
