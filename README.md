@@ -24,10 +24,6 @@ API: https://api.openai.com/v1/images/generations
 
 ## Previews
 
-| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/SelectionScreen.png" style=" width:100px" />
-| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/ChatScreen.png" style=" width:100px" />
-|
+| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/SelectionScreen.png" style=" width:100px" /> | <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/ChatScreen.png" style=" width:100px" /> |
 |--|--|
-| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/ImageGenerationScreen.png" style=" width:100px" />
-| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/MultiScreenLaunch.png" style=" width:100px" />
-|
+| <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/ImageGenerationScreen.png" style=" width:100px" /> | <img src="https://raw.github.com/dkexception/ChatGPT-Android-App/main/previews/MultiScreenLaunch.png" style=" width:100px" /> |
