@@ -9,12 +9,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.dkexception.chatgpt.R
-import com.dkexception.chatgpt.ui.main.AppNavigationRoutes
 
 @Composable
-fun SelectionScreen(navController: NavController) = Scaffold(
+fun SelectionScreen(
+    onButtonAction: ((Int) -> Unit)? = null
+) = Scaffold(
     modifier = Modifier.fillMaxSize(),
     topBar = {
         CenterAlignedTopAppBar(
@@ -40,7 +40,7 @@ fun SelectionScreen(navController: NavController) = Scaffold(
         ) {
 
             ElevatedButton(
-                onClick = { navController.navigate(AppNavigationRoutes.CHAT.routeName) }
+                onClick = { onButtonAction?.invoke(0) }
             ) {
                 Text(text = "Chat")
             }
@@ -48,7 +48,7 @@ fun SelectionScreen(navController: NavController) = Scaffold(
             Spacer(modifier = Modifier.height(32.dp))
 
             ElevatedButton(
-                onClick = { navController.navigate(AppNavigationRoutes.IMAGE_GENERATION.routeName) }
+                onClick = { onButtonAction?.invoke(1) }
             ) {
                 Text(text = "Image generation")
             }

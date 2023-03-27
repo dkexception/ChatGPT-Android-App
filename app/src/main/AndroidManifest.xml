@@ -14,17 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatGPT"
         tools:targetApi="31">
+
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ChatGPT"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/Theme.ChatGPT">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".main.ChatActivity"
+            android:exported="false"
+            android:launchMode="singleInstancePerTask"
+            android:theme="@style/Theme.ChatGPT"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
